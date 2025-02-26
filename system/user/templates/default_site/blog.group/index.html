@@ -1,0 +1,76 @@
+{embed="partials/header"}
+{embed="partials/menu"}
+
+<div class="container" style="padding-top:300px;">
+<div class="row">
+<div class="col-12">
+<h1 class="text-center">Blog</h1>
+</div>
+</div>
+</div>
+
+
+
+<style type="text/css">
+.jumbotron {display:none;}
+#wrapper {margin-top: 65px;}
+@media screen and (max-width:991px) {
+	#wrapper {margin-top:0px;}
+}
+/* .navbar-default {background:#ce2323;border-bottom: 3px solid #8e0e0e;}
+#menu-toggle:hover {background:#ce2323;} */
+
+</style>
+
+<div class="container">
+
+	<h1 class="blog-title" style="margin: 20px 0px;">Blog</h1>
+
+	{exp:channel:category_heading channel="blog" paginate="bottom"}
+	  <h4 class="blog-category-heading">Posts for Tag: <span>{category_name}</span></h4>
+	  <hr />
+	{/exp:channel:category_heading}
+
+	<ul class="job_list blog-posts">
+		
+		{exp:channel:entries channel="blog" limit="10" sort="desc"}
+
+			<div class="col-xs-12 col-sm-4 blog-index-listing">
+					<a href="/blog/post/{url_title}" target="_parent">
+					  	{if featured_image}
+					  		<p class="featured-image"><img class="img-fluid" src="{featured_image}" /></p>
+					  	{if:else}
+					  		<p class="featured-image"><img class="img-fluid" src="https://conversionia.com/images/uploads/blog-featured-image-placeholder.jpg" /></p>
+					  	{/if}
+					</a>
+					<h2 style="margin-bottom: 0px;"><a href="/blog/post/{url_title}" target="_parent">{if blog_title}{blog_title}{if:else}{title}{/if}</a></h2>
+					{if author_byline}<p style="margin-bottom:0px;">By: {author_byline}</p>{/if}
+					<p property="datePosted">{entry_date format="%F %j, %Y"}
+					{!-- <br />Tags: {categories backspace="2"}<a href="{path='blog/tag'}">{category_name}</a>, {/categories} --}</p>
+					<p>{summary}</p>
+					<a href="/blog/post/{url_title}" target="_parent">Read more...</a>
+			</div>
+						
+			{paginate}
+				<p>
+				{if previous_page}
+					<a href="{auto_path}"><button class="btn btn-paginate">Previous</button></a> &nbsp;
+				{/if}
+
+				{if next_page}
+					<a href="{auto_path}"><button class="btn btn-paginate">Next</button></a>
+				{/if}
+				</p>
+				<p>{pagination_links}</p>
+
+			{/paginate}
+		{/exp:channel:entries}
+		
+	</ul>
+</div>
+
+
+
+
+{embed="_Homepage/sponsors"}
+{embed="partials/footer"}

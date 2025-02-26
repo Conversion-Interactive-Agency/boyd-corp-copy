@@ -1,0 +1,19 @@
+{embed="partials/header"}
+{embed="partials/menu"}
+{embed="_Homepage/carousel"}
+
+
+{exp:channel:entries channel="pages" limit="5" entry_id="7"}
+	<div class="container page-entry">
+        <div class="col-sm-12 col-md-10 mx-auto pt-5">        
+        {entry_title}
+        <br>
+        <h2>{news_body}</h2>
+        <p>{text_area}</p>
+        </div>
+        
+    </div>
+	
+{/exp:channel:entries}
+{embed="_Homepage/sponsors"}
+{embed="partials/footer"}

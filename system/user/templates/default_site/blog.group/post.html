@@ -1,0 +1,82 @@
+{embed="partials/header"}
+{embed="partials/menu"}
+
+
+<style type="text/css">
+.jumbotron {display:none;}
+#wrapper {margin-top: 65px;}
+@media screen and (max-width:991px) {
+	#wrapper {margin-top:0px;}
+}
+/* .navbar-default {background:#ce2323;border-bottom: 3px solid #8e0e0e;}
+#menu-toggle:hover {background:#ce2323;} */
+</style>
+
+	<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-8">
+	
+			<div class="mainContent blog-body">
+			{exp:channel:entries channel="blog" limit="1" require_entry="yes"}
+				<div class="blog-breadcrumb"><a href="/blog">Blog</a> &raquo; <a href="/blog/post/{url_title}" target="_parent">{if blog_title}{blog_title}{if:else}{title}{/if}</a></div>
+
+				<h1 class="blog-title">{if blog_title}{blog_title}{if:else}{title}{/if}</h1>
+				<p property="datePosted">Posted: {entry_date format="%F %j, %Y"} {!-- &bull; {categories backspace="2"}<a href="{path='blog/tag'}">{category_name}</a>, {/categories} --}{if author_byline}&bull; By: {author_byline}{/if}</p>
+
+				{if featured_image}
+					<p class="featured-image"><img class="img-fluid" src="{featured_image}" /></p>
+				{if:else}
+					<p class="featured-image"><img class="img-fluid" src="https://conversionia.com/images/uploads/blog-featured-image-placeholder.jpg" /></p>
+				{/if}
+				
+				<div class="social">
+					<a class="social__item social__item_fb facebook customer share" href="https://www.facebook.com/sharer.php?u={title_permalink=blog/post}" title="Share with Facebook" target="_blank"><i></i></a>
+					<a class="social__item social__item_tw twitter customer share" href="https://twitter.com/share?url={title_permalink=blog/post}" title="Share with Twitter" target="_blank"><i></i></a>
+					<a class="social__item social__item_lin linkedin customer share" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={title_permalink=blog/post}" title="Share with LinkedIn" target="_blank"><i></i></a>
+				</div>
+				
+				<p>{blogContent}</p>
+				
+			{/exp:channel:entries}
+				
+				<hr />
+				<p style="margin-top: 10px;"><a href="/blog">&laquo; Back to Blog Posts</a></p>
+				
+			</div>
+			
+		</div>
+			
+		<div class="col-xs-12 col-sm-4">
+			
+			<div class="blog-sidebar">
+
+					  <ul class="job_list">
+					  
+							<h2>Most Recent Entries</h2>
+
+							{exp:channel:entries channel="blog" limit="5" dynamic="no"}
+								<div class="blog-sidebar-listing">
+								  <a href="/blog/post/{url_title}" target="_parent">
+									  {if featured_image}
+										  <p class="featured-image"><img src="{featured_image}" /></p>
+									  {if:else}
+										  <p class="featured-image"><img src="https://conversionia.com/images/uploads/blog-featured-image-placeholder.jpg" /></p>
+									  {/if}
+								  </a>
+								  <p property="datePosted">{entry_date format="%F %j, %Y"} {!-- &bull; {categories backspace="2"}<a href="{path='blog/tag'}">{category_name}</a>, {/categories} --}</p>
+								  <h4><a href="/blog/post/{url_title}" target="_parent">{if blog_title}{blog_title}{if:else}{title}{/if}</a></h4>
+								</div>
+							{/exp:channel:entries}
+				
+			</div>
+			
+		</div>
+			
+		<div class="clearfix"></div>
+			</div>
+	</div>
+	
+	
+
+{embed="_Homepage/sponsors"}
+{embed="partials/footer"}

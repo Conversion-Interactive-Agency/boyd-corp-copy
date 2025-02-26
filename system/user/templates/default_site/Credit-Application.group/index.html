@@ -1,0 +1,21 @@
+{embed="partials/header"}
+{embed="partials/menu"}
+{embed="_Homepage/carousel"}
+
+
+{exp:channel:entries channel="pages" limit="5" entry_id="16"}
+	<div class="container page-entry">
+        <div class="col-sm-12 col-md-8 mx-auto pt-5">        
+        {entry_title}
+        <br>
+        <h2>{news_body}</h2>
+        <p>{text_area}</p>
+        </div>
+        
+    </div>
+    
+ {!--  {embed="partials/Credit-Form"}" --}
+	
+{/exp:channel:entries}
+{embed="_Homepage/sponsors"}
+{embed="partials/footer"}

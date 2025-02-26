@@ -1,0 +1,28 @@
+{embed="partials/header"}
+{embed="partials/menu"}
+
+{exp:search:search_results}
+
+  <tr class="{switch}">
+        <td width="30%" valign="top"><b><a href="{auto_path}">{title}</a></b></td>
+        <td width="30%" valign="top">{excerpt}</td>
+        <td width="10%" valign="top"><a href="{member_path='member/index'}">{author}</a></td>
+        <td width="10%" valign="top">{entry_date format="%m/%d/%y"}</td>
+        <td width="10%" valign="top">{comment_total}</td>
+        <td width="10%" valign="top">{recent_comment_date format="%m/%d/%y"}</td>
+    </tr>
+
+    {if count == total_results}
+        </table>
+    {/if}
+
+    {paginate}
+        <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+    {/paginate}
+
+
+
+{/exp:search:search_results}
+
+{embed="_Homepage/sponsors"}
+{embed="partials/footer"}

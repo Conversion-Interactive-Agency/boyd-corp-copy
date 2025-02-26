@@ -1,0 +1,29 @@
+  {exp:formgrab:form
+		name="contact_form"
+		title="Contact Form"
+		form_id="demo-form"
+	}
+
+		<div class="container col-sm-12 col-md-8 col-lg-6 py-5" >
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input name="name" type="text" class="form-control" id="name" placeholder="Your name">
+		</div>
+		<div class="form-group">
+			<label for="email">Email address</label>
+			<input name="email" type="email" class="form-control" id="email" placeholder="Your email address">
+		</div>
+		<div class="form-group">
+			<label for="message">Message</label>
+			<textarea name="message" class="form-control" id="message" rows="3"></textarea>
+		</div>
+		<div class="form-group">
+			<button class="btn btn-primary g-recaptcha" data-sitekey="6Lf-_60UAAAAALZ7Jrm4sS-6f0Y7y7vVl1QzmtFz" data-callback='onSubmit' 
+			type="submit">Submit</button>			
+		</div>
+		
+		
+	
+</div>
+
+	{/exp:formgrab:form}
